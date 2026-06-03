@@ -7,7 +7,9 @@ export const metadata: Metadata = {
   description:
     "Uma central de controle premium para academias que querem operar com mais profissionalismo.",
   icons: {
-    icon: assetPath("/favicon.svg")
+    icon: assetPath("/images/logo-fitflow.png"),
+    shortcut: assetPath("/images/logo-fitflow.png"),
+    apple: assetPath("/images/logo-fitflow.png")
   }
 };
 
