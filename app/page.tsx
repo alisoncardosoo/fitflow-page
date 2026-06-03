@@ -142,12 +142,12 @@ function PositioningSection() {
           title="Não é apenas um sistema. É a central de controle da sua academia."
           description="O FitFlow reúne o que antes ficava espalhado em planilhas, mensagens e controles manuais. Tudo ganha fluxo, clareza e uma experiência mais profissional para equipe, gestão e alunos."
         />
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid auto-rows-fr gap-5 md:grid-cols-3">
           {positioningCards.map((card, index) => {
             const Icon = card.icon;
 
             return (
-              <Reveal delay={index * 0.08} key={card.title}>
+              <Reveal className="h-full" delay={index * 0.08} key={card.title}>
                 <div className="glass-panel group h-full rounded-[28px] p-6 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/[0.22]">
                   <span className="mb-8 grid h-12 w-12 place-items-center rounded-2xl bg-lime/[0.12] text-lime transition duration-700 group-hover:bg-lime group-hover:text-ink">
                     <Icon className="h-5 w-5" />
@@ -179,13 +179,13 @@ function PainSection() {
       </div>
       <div className="section-shell">
         <SectionHeading title="Quando a academia cresce, os detalhes começam a escapar." />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {painCards.map((card, index) => {
             const Icon = card.icon;
 
             return (
-              <Reveal delay={index * 0.05} key={card.title}>
-                <div className="glass-panel group flex min-h-36 items-start gap-4 rounded-[26px] p-5 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/20">
+              <Reveal className="h-full" delay={index * 0.05} key={card.title}>
+                <div className="glass-panel group flex h-full min-h-36 items-start gap-4 rounded-[26px] p-5 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/20">
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/[0.045] text-lime">
                     <Icon className="h-5 w-5" />
                   </span>
@@ -205,12 +205,12 @@ function FeatureSection() {
     <section id="recursos" className="py-24 md:py-32">
       <div className="section-shell">
         <SectionHeading title="Tudo conectado, sem complexidade." />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
-              <Reveal delay={(index % 4) * 0.05} key={feature.title}>
+              <Reveal className="h-full" delay={(index % 4) * 0.05} key={feature.title}>
                 <div className="group h-full rounded-[26px] border border-white/[0.08] bg-white/[0.035] p-5 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/[0.24] hover:bg-white/[0.06]">
                   <span className="mb-7 grid h-11 w-11 place-items-center rounded-2xl bg-lime/10 text-lime">
                     <Icon className="h-5 w-5" />
@@ -294,9 +294,9 @@ function HowItWorksSection() {
     <section className="relative py-24 md:py-32">
       <div className="section-shell">
         <SectionHeading title="Comece simples. Ganhe controle com o tempo." />
-        <div className="grid gap-5 lg:grid-cols-4">
+        <div className="grid auto-rows-fr gap-5 lg:grid-cols-4">
           {timeline.map((item, index) => (
-            <Reveal delay={index * 0.08} key={item.title}>
+            <Reveal className="h-full" delay={index * 0.08} key={item.title}>
               <div className="relative h-full rounded-[26px] border border-white/[0.08] bg-white/[0.035] p-6">
                 <span className="mb-10 grid h-10 w-10 place-items-center rounded-full bg-lime text-sm font-semibold text-ink">
                   {index + 1}
@@ -322,10 +322,10 @@ function BenefitsSection() {
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid auto-rows-fr gap-5 sm:grid-cols-2">
             {benefits.map((benefit) => (
               <div
-                className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4 text-sm font-medium text-ice"
+                className="flex h-full min-h-[88px] items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4 text-sm font-medium text-ice"
                 key={benefit}
               >
                 <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-lime/[0.12] text-lime">
@@ -356,10 +356,10 @@ function AudienceSection() {
       </div>
       <div className="section-shell">
         <SectionHeading title="Feito para academias que querem evoluir com organização." />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {audience.map((item, index) => (
-            <Reveal delay={index * 0.05} key={item}>
-              <div className="glass-panel flex min-h-40 flex-col justify-between rounded-[26px] p-5">
+            <Reveal className="h-full" delay={index * 0.05} key={item}>
+              <div className="glass-panel flex h-full min-h-48 flex-col justify-between rounded-[26px] p-5">
                 <Sparkles className="h-5 w-5 text-lime" />
                 <h3 className="mt-12 text-xl font-semibold leading-7 text-ice">{item}</h3>
               </div>

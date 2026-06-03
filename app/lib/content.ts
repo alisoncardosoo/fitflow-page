@@ -108,7 +108,8 @@ export const benefits = [
   "Dá mais clareza para a equipe",
   "Ajuda na retenção",
   "Facilita o acompanhamento financeiro",
-  "Profissionaliza a operação"
+  "Profissionaliza a operação",
+  "Apoia decisões com dados"
 ];
 
 export const timeline = [
