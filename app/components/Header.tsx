@@ -55,27 +55,24 @@ export function Header() {
               {item.label}
             </a>
           ))}
-        </nav>
-
-        <div className="flex items-center gap-3">
           <a
-            className="focus-ring group hidden items-center gap-2 rounded-full bg-lime px-5 py-3 text-sm font-semibold text-ink shadow-[0_18px_60px_rgba(199,255,74,0.18)] transition duration-700 ease-smooth hover:scale-[1.02] hover:bg-mist md:flex"
+            className="focus-ring group ml-1 flex items-center gap-2 rounded-full bg-lime px-4 py-2 font-semibold text-ink transition duration-500 ease-smooth hover:scale-[1.02] hover:bg-mist"
             href="#precos"
           >
             Solicitar demonstração
             <ArrowRight className="h-4 w-4 transition duration-500 group-hover:translate-x-0.5" />
           </a>
+        </nav>
 
-          <button
-            className="focus-ring grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.06] text-ice backdrop-blur-xl transition hover:bg-white/10 lg:hidden"
-            type="button"
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setIsOpen((current) => !current)}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
+        <button
+          className="focus-ring grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.06] text-ice backdrop-blur-xl transition hover:bg-white/10 lg:hidden"
+          type="button"
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          onClick={() => setIsOpen((current) => !current)}
+        >
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
 
       <div

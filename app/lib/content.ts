@@ -169,13 +169,40 @@ export type IconItem = {
   icon: LucideIcon;
 };
 
-export const productLabels = [
-  "Dashboard",
-  "Alunos",
-  "Check-ins",
-  "Treinos",
-  "Financeiro",
-  "Notificações"
+// Slides da seção "Experiência". `image` é o arquivo definitivo (adicione em
+// public/images); enquanto ele não existir, `fallback` (uma imagem já presente)
+// é exibido automaticamente para a tela não quebrar.
+export const productSlides = [
+  {
+    label: "Dashboard",
+    image: "/images/experiencia-dashboard.png",
+    fallback: "/images/fitflow-dashboard-preview.png"
+  },
+  {
+    label: "Alunos",
+    image: "/images/experiencia-alunos.png",
+    fallback: "/images/fitflow-dashboard-preview.png"
+  },
+  {
+    label: "Check-ins",
+    image: "/images/experiencia-checkins.png",
+    fallback: "/images/fitflow-mobile-preview.png"
+  },
+  {
+    label: "Treinos",
+    image: "/images/experiencia-treinos.png",
+    fallback: "/images/fitflow-mobile-workout.png"
+  },
+  {
+    label: "Financeiro",
+    image: "/images/experiencia-financeiro.png",
+    fallback: "/images/fitflow-finance-preview.png"
+  },
+  {
+    label: "Notificações",
+    image: "/images/experiencia-notificacoes.png",
+    fallback: "/images/fitflow-mobile-preview.png"
+  }
 ];
 
 export const dashboardMetrics = [

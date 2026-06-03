@@ -374,52 +374,48 @@ function AudienceSection() {
 function FinalCtaSection() {
   return (
     <section id="precos" className="py-24 md:py-32">
-      <div className="section-shell">
+      <div className="section-shell grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+        <div>
+          <div>
+            <h3 className="text-xl font-semibold text-ice">Recursos inclusos:</h3>
+            <PricingBulletList items={PRICING_FEATURES} />
+          </div>
+
+          <div className="mt-9 border-t border-white/[0.1] pt-8">
+            <h3 className="text-xl font-semibold text-ice">Vantagens:</h3>
+            <PricingBulletList items={PRICING_PERKS} tone="soft" />
+          </div>
+        </div>
+
         <div className="glass-panel relative overflow-hidden rounded-[36px] p-6 md:p-10 lg:p-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(199,255,74,0.16),transparent_22rem)]" />
 
-          <div className="relative z-10 grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12">
-            <div className="flex min-h-[22rem] flex-col justify-between border-white/[0.08] lg:border-r lg:pr-12">
-              <div>
-                <p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">
-                  Plano completo
-                </p>
-                <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
-                  FitFlow para academias em crescimento.
-                </h2>
-                <p className="mt-5 max-w-md text-base leading-7 text-muted md:text-lg md:leading-8">
-                  A central para organizar gestão, alunos, treinos e financeiro em um fluxo mais
-                  claro e profissional.
-                </p>
-              </div>
+          <div className="relative z-10">
+            <p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">
+              Plano completo
+            </p>
+            <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
+              FitFlow para academias em crescimento.
+            </h2>
+            <p className="mt-5 max-w-md text-base leading-7 text-muted md:text-lg md:leading-8">
+              A central para organizar gestão, alunos, treinos e financeiro em um fluxo mais claro
+              e profissional.
+            </p>
 
-              <div className="mt-9">
-                <div className="flex flex-wrap items-end gap-x-4 gap-y-2">
-                  <span className="text-5xl font-semibold leading-none text-lime md:text-6xl">
-                    R$ 149,00
-                  </span>
-                  <span className="pb-1 text-base font-medium text-muted">
-                    <span className="text-ice line-through decoration-lime/70">R$ 599,00</span>
-                  </span>
-                </div>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  Condição especial para demonstração.
-                </p>
-                <div className="mt-7 max-w-sm">
-                  <PrimaryButton href={WHATSAPP_URL} label="Solicitar demonstração" />
-                </div>
+            <div className="mt-9">
+              <div className="flex flex-wrap items-end gap-x-4 gap-y-2">
+                <span className="text-5xl font-semibold leading-none text-lime md:text-6xl">
+                  R$ 149,00
+                </span>
+                <span className="pb-1 text-base font-medium text-muted">
+                  <span className="text-ice line-through decoration-lime/70">R$ 599,00</span>
+                </span>
               </div>
-            </div>
-
-            <div className="flex flex-col justify-center">
-              <div>
-                <h3 className="text-xl font-semibold text-ice">Recursos inclusos:</h3>
-                <PricingBulletList items={PRICING_FEATURES} />
-              </div>
-
-              <div className="mt-9 border-t border-white/[0.1] pt-8">
-                <h3 className="text-xl font-semibold text-ice">Vantagens:</h3>
-                <PricingBulletList items={PRICING_PERKS} tone="soft" />
+              <p className="mt-3 text-sm leading-6 text-muted">
+                Condição especial para demonstração.
+              </p>
+              <div className="mt-7 max-w-sm">
+                <PrimaryButton href={WHATSAPP_URL} label="Solicitar demonstração" />
               </div>
             </div>
           </div>

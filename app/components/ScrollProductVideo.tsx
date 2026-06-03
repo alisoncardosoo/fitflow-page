@@ -3,33 +3,63 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { assetPath } from "../lib/assets";
-import { productLabels } from "../lib/content";
+import { productSlides } from "../lib/content";
 
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
+type Slide = (typeof productSlides)[number];
+
+function SlideImage({
+  slide,
+  isActive,
+  priority
+}: {
+  slide: Slide;
+  isActive: boolean;
+  priority: boolean;
+}) {
+  const [src, setSrc] = useState(assetPath(slide.image));
+
+  return (
+    <Image
+      src={src}
+      alt={`FitFlow — ${slide.label}`}
+      fill
+      sizes="(max-width: 1024px) 100vw, 1024px"
+      priority={priority}
+      className={`object-cover object-left-top transition-opacity duration-700 ease-smooth ${
+        isActive ? "opacity-100" : "opacity-0"
+      }`}
+      onError={() => {
+        const fallback = assetPath(slide.fallback);
+        setSrc((current) => (current === fallback ? current : fallback));
+      }}
+    />
+  );
+}
+
 export function ScrollProductVideo() {
   const sectionRef = useRef<HTMLElement | null>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const targetTimeRef = useRef(0);
-  const currentTimeRef = useRef(0);
-  const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [canUseVideo, setCanUseVideo] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const query = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(query.matches);
 
-    if (mediaQuery.matches || mobileQuery.matches) {
-      setCanUseVideo(false);
-    }
+    update();
+    query.addEventListener("change", update);
+
+    return () => query.removeEventListener("change", update);
   }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const video = videoRef.current;
 
-    if (!section) {
+    // Em telas pequenas a seção não é alta/sticky, então mantemos o primeiro
+    // slide fixo (mesmo comportamento estático que o vídeo tinha no mobile).
+    if (!isDesktop || !section) {
+      setProgress(0);
       return;
     }
 
@@ -40,23 +70,19 @@ export function ScrollProductVideo() {
       const scrollable = Math.max(rect.height - window.innerHeight, 1);
       const nextProgress = clamp(-rect.top / scrollable, 0, 1);
 
-      targetTimeRef.current = duration > 0 ? nextProgress * duration : nextProgress * 8;
-      currentTimeRef.current += (targetTimeRef.current - currentTimeRef.current) * 0.09;
-
-      if (video && canUseVideo && duration > 0 && Number.isFinite(currentTimeRef.current)) {
-        video.currentTime = currentTimeRef.current;
-      }
-
-      setProgress(nextProgress);
+      setProgress((prev) => (Math.abs(prev - nextProgress) > 0.001 ? nextProgress : prev));
       frame = requestAnimationFrame(tick);
     };
 
     frame = requestAnimationFrame(tick);
 
     return () => cancelAnimationFrame(frame);
-  }, [canUseVideo, duration]);
+  }, [isDesktop]);
 
-  const activeLabel = Math.min(productLabels.length - 1, Math.floor(progress * productLabels.length));
+  const activeIndex = Math.min(
+    productSlides.length - 1,
+    Math.floor(progress * productSlides.length)
+  );
 
   return (
     <section
@@ -84,39 +110,25 @@ export function ScrollProductVideo() {
             <div className="glass-panel lime-glow relative overflow-hidden rounded-[34px] p-2 md:p-3">
               <div className="absolute left-6 top-6 z-20 hidden items-center gap-2 rounded-full border border-white/10 bg-ink/[0.62] px-4 py-2 text-xs font-medium text-ice backdrop-blur-xl md:flex">
                 <span className="h-2 w-2 rounded-full bg-lime" />
-                {productLabels[activeLabel]}
+                {productSlides[activeIndex].label}
               </div>
 
               <div className="relative h-[min(46svh,520px)] overflow-hidden rounded-[26px] bg-ink md:h-[min(50svh,520px)]">
-                {canUseVideo ? (
-                  <video
-                    ref={videoRef}
-                    className="h-full w-full object-cover object-left-top"
-                    muted
-                    playsInline
-                    preload="metadata"
-                    poster={assetPath("/images/fitflow-dashboard-preview.png")}
-                    onLoadedMetadata={(event) => setDuration(event.currentTarget.duration || 0)}
-                    onError={() => setCanUseVideo(false)}
-                  >
-                    <source src={assetPath("/videos/fitflow-demo-scroll.mp4")} type="video/mp4" />
-                  </video>
-                ) : (
-                  <Image
-                    src={assetPath("/images/fitflow-dashboard-preview.png")}
-                    alt="Preview do dashboard FitFlow"
-                    width={1920}
-                    height={1080}
-                    className="h-full w-full object-cover object-left-top"
+                {productSlides.map((slide, index) => (
+                  <SlideImage
+                    key={slide.label}
+                    slide={slide}
+                    isActive={index === activeIndex}
+                    priority={index === 0}
                   />
-                )}
+                ))}
 
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_16%,rgba(199,255,74,0.12),transparent_28%),linear-gradient(180deg,rgba(7,7,7,0)_52%,rgba(7,7,7,0.78)_100%)]" />
               </div>
 
               <div className="grid grid-cols-2 gap-2 px-2 pb-2 pt-3 sm:grid-cols-3 lg:grid-cols-6">
-                {productLabels.map((label, index) => {
-                  const isActive = index === activeLabel;
+                {productSlides.map((slide, index) => {
+                  const isActive = index === activeIndex;
 
                   return (
                     <div
@@ -125,9 +137,9 @@ export function ScrollProductVideo() {
                           ? "border-lime/[0.35] bg-lime/[0.12] text-lime"
                           : "border-white/[0.08] bg-white/[0.035] text-muted"
                       }`}
-                      key={label}
+                      key={slide.label}
                     >
-                      {label}
+                      {slide.label}
                     </div>
                   );
                 })}
