@@ -40,7 +40,7 @@ export function SectionHeading({
 
   return (
     <Reveal
-      className={`mx-auto mb-12 ${isCenter ? "max-w-3xl text-center" : "max-w-2xl text-left"}`}
+      className={`mx-auto mb-14 ${isCenter ? "max-w-3xl text-center" : "max-w-2xl text-left"}`}
     >
       {eyebrow ? (
         <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">

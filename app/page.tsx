@@ -142,7 +142,7 @@ function PositioningSection() {
           title="Não é apenas um sistema. É a central de controle da sua academia."
           description="O FitFlow reúne o que antes ficava espalhado em planilhas, mensagens e controles manuais. Tudo ganha fluxo, clareza e uma experiência mais profissional para equipe, gestão e alunos."
         />
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-3">
           {positioningCards.map((card, index) => {
             const Icon = card.icon;
 
@@ -179,7 +179,7 @@ function PainSection() {
       </div>
       <div className="section-shell">
         <SectionHeading title="Quando a academia cresce, os detalhes começam a escapar." />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {painCards.map((card, index) => {
             const Icon = card.icon;
 
@@ -205,7 +205,7 @@ function FeatureSection() {
     <section id="recursos" className="py-24 md:py-32">
       <div className="section-shell">
         <SectionHeading title="Tudo conectado, sem complexidade." />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
@@ -229,14 +229,14 @@ function FeatureSection() {
 
 function AppleStatementSection() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-36">
+    <section className="relative overflow-hidden py-24 md:py-32">
       <div className="section-shell">
         <Reveal className="mx-auto max-w-5xl text-center">
           <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
             Simples na superfície. Poderoso na gestão.
           </h2>
         </Reveal>
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        <div className="mt-16 grid gap-5 md:grid-cols-3">
           {[
             {
               title: "Para o gestor",
@@ -280,7 +280,7 @@ function InterfaceSection() {
               alt="Tela real do dashboard administrativo do FitFlow"
               width={1920}
               height={1080}
-              className="aspect-[16/9] w-full rounded-[26px] object-cover object-left-top"
+              className="aspect-[16/9] w-full rounded-[26px] object-contain"
             />
           </div>
         </Reveal>
@@ -294,7 +294,7 @@ function HowItWorksSection() {
     <section className="relative py-24 md:py-32">
       <div className="section-shell">
         <SectionHeading title="Comece simples. Ganhe controle com o tempo." />
-        <div className="grid gap-4 lg:grid-cols-4">
+        <div className="grid gap-5 lg:grid-cols-4">
           {timeline.map((item, index) => (
             <Reveal delay={index * 0.08} key={item.title}>
               <div className="relative h-full rounded-[26px] border border-white/[0.08] bg-white/[0.035] p-6">
@@ -315,14 +315,14 @@ function HowItWorksSection() {
 function BenefitsSection() {
   return (
     <section className="py-24 md:py-32">
-      <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+      <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16">
         <Reveal>
           <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
             Mais leveza para operar. Mais estrutura para crescer.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             {benefits.map((benefit) => (
               <div
                 className="flex items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4 text-sm font-medium text-ice"
@@ -356,7 +356,7 @@ function AudienceSection() {
       </div>
       <div className="section-shell">
         <SectionHeading title="Feito para academias que querem evoluir com organização." />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {audience.map((item, index) => (
             <Reveal delay={index * 0.05} key={item}>
               <div className="glass-panel flex min-h-40 flex-col justify-between rounded-[26px] p-5">
@@ -374,7 +374,7 @@ function AudienceSection() {
 function FinalCtaSection() {
   return (
     <section id="precos" className="py-24 md:py-32">
-      <div className="section-shell grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+      <div className="section-shell grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>
           <div>
             <h3 className="text-xl font-semibold text-ice">Recursos inclusos:</h3>
@@ -428,7 +428,7 @@ function FinalCtaSection() {
 function AppPreviewSection() {
   return (
     <section className="py-24 md:py-32">
-      <div className="section-shell grid items-center gap-14 lg:grid-cols-[1fr_0.72fr]">
+      <div className="section-shell grid items-center gap-12 lg:grid-cols-[1fr_0.72fr] lg:gap-16">
         <Reveal>
           <div>
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">

@@ -38,8 +38,8 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 overflow-x-clip transition-all duration-700 ease-smooth ${
         isScrolled
-          ? "border-b border-white/10 bg-ink/[0.72] shadow-[0_18px_70px_rgba(0,0,0,0.32)] backdrop-blur-2xl"
-          : "border-b border-transparent bg-transparent"
+          ? "bg-ink/[0.72] shadow-[0_18px_70px_rgba(0,0,0,0.32)] backdrop-blur-2xl"
+          : "bg-transparent"
       }`}
     >
       <div className="section-shell flex h-[76px] items-center justify-between">

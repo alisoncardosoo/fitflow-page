@@ -27,7 +27,7 @@ function SlideImage({
       fill
       sizes="(max-width: 1024px) 100vw, 1024px"
       priority={priority}
-      className={`object-cover object-left-top transition-opacity duration-700 ease-smooth ${
+      className={`object-contain transition-opacity duration-700 ease-smooth ${
         isActive ? "opacity-100" : "opacity-0"
       }`}
       onError={() => {
@@ -105,7 +105,7 @@ export function ScrollProductVideo() {
             </p>
           </div>
 
-          <div className="relative mx-auto max-w-6xl">
+          <div className="relative mx-auto w-[min(100%,calc(54svh*1.5377))] max-w-5xl">
             <div className="absolute -inset-6 rounded-[44px] bg-lime/10 blur-3xl" />
             <div className="glass-panel lime-glow relative overflow-hidden rounded-[34px] p-2 md:p-3">
               <div className="absolute left-6 top-6 z-20 hidden items-center gap-2 rounded-full border border-white/10 bg-ink/[0.62] px-4 py-2 text-xs font-medium text-ice backdrop-blur-xl md:flex">
@@ -113,7 +113,7 @@ export function ScrollProductVideo() {
                 {productSlides[activeIndex].label}
               </div>
 
-              <div className="relative h-[min(46svh,520px)] overflow-hidden rounded-[26px] bg-ink md:h-[min(50svh,520px)]">
+              <div className="relative aspect-[2940/1912] w-full overflow-hidden rounded-[26px] bg-ink">
                 {productSlides.map((slide, index) => (
                   <SlideImage
                     key={slide.label}
