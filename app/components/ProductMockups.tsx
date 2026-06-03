@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Bell, CalendarCheck, Check, CircleDollarSign, Dumbbell, Users } from "lucide-react";
+import { assetPath } from "../lib/assets";
 import { dashboardMetrics, interfaceNotifications, recentStudents } from "../lib/content";
 
 export function DashboardPreview() {
@@ -11,7 +12,7 @@ export function DashboardPreview() {
         Operação em tempo real
       </div>
       <Image
-        src="/images/fitflow-dashboard-preview.png"
+        src={assetPath("/images/fitflow-dashboard-preview.png")}
         alt="Dashboard administrativo do FitFlow"
         width={1920}
         height={1080}
@@ -29,7 +30,7 @@ export function MobileProductPreview() {
       <div className="absolute -inset-5 rounded-[48px] bg-lime/10 blur-3xl" />
       <div className="glass-panel relative rounded-[42px] border-white/[0.12] bg-ink p-3 shadow-glass">
         <Image
-          src="/images/fitflow-mobile-preview.png"
+          src={assetPath("/images/fitflow-mobile-preview.png")}
           alt="Tela mobile do FitFlow"
           width={945}
           height={2048}

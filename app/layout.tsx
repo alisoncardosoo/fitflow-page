@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { assetPath } from "./lib/assets";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Uma central de controle premium para academias que querem operar com mais profissionalismo.",
   icons: {
-    icon: "/favicon.svg"
+    icon: assetPath("/favicon.svg")
   }
 };
 

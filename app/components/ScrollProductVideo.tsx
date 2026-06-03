@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { assetPath } from "../lib/assets";
 import { productLabels } from "../lib/content";
 
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
@@ -94,15 +95,15 @@ export function ScrollProductVideo() {
                     muted
                     playsInline
                     preload="metadata"
-                    poster="/images/fitflow-dashboard-preview.png"
+                    poster={assetPath("/images/fitflow-dashboard-preview.png")}
                     onLoadedMetadata={(event) => setDuration(event.currentTarget.duration || 0)}
                     onError={() => setCanUseVideo(false)}
                   >
-                    <source src="/videos/fitflow-demo-scroll.mp4" type="video/mp4" />
+                    <source src={assetPath("/videos/fitflow-demo-scroll.mp4")} type="video/mp4" />
                   </video>
                 ) : (
                   <Image
-                    src="/images/fitflow-dashboard-preview.png"
+                    src={assetPath("/images/fitflow-dashboard-preview.png")}
                     alt="Preview do dashboard FitFlow"
                     width={1920}
                     height={1080}

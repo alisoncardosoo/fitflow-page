@@ -3,13 +3,14 @@
 import Image from "next/image";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { assetPath } from "../lib/assets";
 import { navItems } from "../lib/content";
 
 function BrandMark() {
   return (
     <a className="focus-ring flex items-center rounded-xl" href="#top" aria-label="FitFlow início">
       <Image
-        src="/images/logo-fitflow.png"
+        src={assetPath("/images/logo-fitflow.png")}
         alt="FitFlow"
         width={4290}
         height={2292}

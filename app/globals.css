@@ -21,14 +21,14 @@
 html {
   background: var(--background);
   color: var(--foreground);
-  overflow-x: hidden;
+  overflow-x: clip;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 78% 4%, rgba(199, 255, 74, 0.1), transparent 28rem),
     radial-gradient(circle at 12% 24%, rgba(228, 255, 154, 0.06), transparent 32rem),
