@@ -136,7 +136,7 @@ function Hero() {
 
 function PositioningSection() {
   return (
-    <section id="produto" className="relative pb-24 pt-4 md:pb-32 md:pt-4">
+    <section id="produto" className="relative pb-16 pt-3 md:pb-32 md:pt-4">
       <div className="section-shell">
         <SectionHeading
           title="Não é apenas um sistema. É a central de controle da sua academia."
@@ -148,12 +148,12 @@ function PositioningSection() {
 
             return (
               <Reveal className="h-full" delay={index * 0.08} key={card.title}>
-                <div className="glass-panel group h-full rounded-[28px] p-6 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/[0.22]">
-                  <span className="mb-8 grid h-12 w-12 place-items-center rounded-2xl bg-lime/[0.12] text-lime transition duration-700 group-hover:bg-lime group-hover:text-ink">
+                <div className="glass-panel group h-full rounded-[22px] p-4 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/[0.22] md:rounded-[28px] md:p-6">
+                  <span className="mb-5 grid h-10 w-10 place-items-center rounded-xl bg-lime/[0.12] text-lime transition duration-700 group-hover:bg-lime group-hover:text-ink md:mb-8 md:h-12 md:w-12 md:rounded-2xl">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-xl font-semibold text-ice">{card.title}</h3>
-                  <p className="mt-3 leading-7 text-muted">{card.description}</p>
+                  <h3 className="text-lg font-semibold text-ice md:text-xl">{card.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted md:mt-3 md:text-base md:leading-7">{card.description}</p>
                 </div>
               </Reveal>
             );
@@ -166,7 +166,7 @@ function PositioningSection() {
 
 function PainSection() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative overflow-hidden py-16 md:py-32">
       <div className="absolute inset-0 -z-10 opacity-50">
         <Image
           src={assetPath("/images/fitflow-gym-background.jpg")}
@@ -185,11 +185,11 @@ function PainSection() {
 
             return (
               <Reveal className="h-full" delay={index * 0.05} key={card.title}>
-                <div className="glass-panel group flex h-full min-h-36 items-start gap-4 rounded-[26px] p-5 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/20">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/[0.045] text-lime">
+                <div className="glass-panel group flex h-full min-h-24 items-start gap-3 rounded-[22px] p-4 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/20 md:min-h-36 md:gap-4 md:rounded-[26px] md:p-5">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.045] text-lime md:h-11 md:w-11 md:rounded-2xl">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-xl font-semibold leading-7 text-ice">{card.title}</h3>
+                  <h3 className="text-base font-semibold leading-6 text-ice md:text-xl md:leading-7">{card.title}</h3>
                 </div>
               </Reveal>
             );
@@ -202,7 +202,7 @@ function PainSection() {
 
 function FeatureSection() {
   return (
-    <section id="recursos" className="py-24 md:py-32">
+    <section id="recursos" className="py-16 md:py-32">
       <div className="section-shell">
         <SectionHeading title="Tudo conectado, sem complexidade." />
         <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -211,12 +211,12 @@ function FeatureSection() {
 
             return (
               <Reveal className="h-full" delay={(index % 4) * 0.05} key={feature.title}>
-                <div className="group h-full rounded-[26px] border border-white/[0.08] bg-white/[0.035] p-5 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/[0.24] hover:bg-white/[0.06]">
-                  <span className="mb-7 grid h-11 w-11 place-items-center rounded-2xl bg-lime/10 text-lime">
+                <div className="group h-full rounded-[22px] border border-white/[0.08] bg-white/[0.035] p-4 transition duration-700 ease-smooth hover:-translate-y-1 hover:border-lime/[0.24] hover:bg-white/[0.06] md:rounded-[26px] md:p-5">
+                  <span className="mb-5 grid h-10 w-10 place-items-center rounded-xl bg-lime/10 text-lime md:mb-7 md:h-11 md:w-11 md:rounded-2xl">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-xl font-semibold text-ice">{feature.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted">{feature.description}</p>
+                  <h3 className="text-lg font-semibold text-ice md:text-xl">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted md:mt-3">{feature.description}</p>
                 </div>
               </Reveal>
             );
@@ -229,10 +229,10 @@ function FeatureSection() {
 
 function AppleStatementSection() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative overflow-hidden py-16 md:py-32">
       <div className="section-shell">
         <Reveal className="mx-auto max-w-5xl text-center">
-          <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
+          <h2 className="text-balance text-3xl font-semibold leading-[1.05] text-ice md:text-6xl md:leading-[1.02]">
             Simples na superfície. Poderoso na gestão.
           </h2>
         </Reveal>
@@ -266,7 +266,7 @@ function AppleStatementSection() {
 
 function InterfaceSection() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-32">
       <div className="section-shell">
         <SectionHeading
           align="left"
@@ -274,13 +274,13 @@ function InterfaceSection() {
           description="Menu lateral, métricas essenciais, gráfico de evolução, alunos recentes e notificações em uma leitura limpa."
         />
         <Reveal>
-          <div className="glass-panel lime-glow relative overflow-hidden rounded-[34px] p-2 md:p-3">
+          <div className="glass-panel lime-glow relative overflow-hidden rounded-[26px] p-1.5 md:rounded-[34px] md:p-3">
             <Image
               src={assetPath("/images/fitflow-dashboard-preview.png")}
               alt="Tela real do dashboard administrativo do FitFlow"
               width={1920}
               height={1080}
-              className="aspect-[16/9] w-full rounded-[26px] object-contain"
+              className="aspect-[16/9] w-full rounded-[20px] object-contain md:rounded-[26px]"
             />
           </div>
         </Reveal>
@@ -291,18 +291,18 @@ function InterfaceSection() {
 
 function HowItWorksSection() {
   return (
-    <section className="relative py-24 md:py-32">
+    <section className="relative py-16 md:py-32">
       <div className="section-shell">
         <SectionHeading title="Comece simples. Ganhe controle com o tempo." />
         <div className="grid auto-rows-fr gap-5 lg:grid-cols-4">
           {timeline.map((item, index) => (
             <Reveal className="h-full" delay={index * 0.08} key={item.title}>
-              <div className="relative h-full rounded-[26px] border border-white/[0.08] bg-white/[0.035] p-6">
-                <span className="mb-10 grid h-10 w-10 place-items-center rounded-full bg-lime text-sm font-semibold text-ink">
+              <div className="relative h-full rounded-[22px] border border-white/[0.08] bg-white/[0.035] p-4 md:rounded-[26px] md:p-6">
+                <span className="mb-6 grid h-9 w-9 place-items-center rounded-full bg-lime text-sm font-semibold text-ink md:mb-10 md:h-10 md:w-10">
                   {index + 1}
                 </span>
-                <h3 className="text-xl font-semibold leading-7 text-ice">{item.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{item.description}</p>
+                <h3 className="text-lg font-semibold leading-6 text-ice md:text-xl md:leading-7">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted md:mt-3">{item.description}</p>
               </div>
             </Reveal>
           ))}
@@ -314,10 +314,10 @@ function HowItWorksSection() {
 
 function BenefitsSection() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-32">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-16">
         <Reveal>
-          <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
+          <h2 className="text-balance text-3xl font-semibold leading-[1.05] text-ice md:text-6xl md:leading-[1.02]">
             Mais leveza para operar. Mais estrutura para crescer.
           </h2>
         </Reveal>
@@ -325,10 +325,10 @@ function BenefitsSection() {
           <div className="grid auto-rows-fr gap-5 sm:grid-cols-2">
             {benefits.map((benefit) => (
               <div
-                className="flex h-full min-h-[88px] items-center gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.035] p-4 text-sm font-medium text-ice"
+                className="flex h-full min-h-16 items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.035] p-3 text-sm font-medium text-ice md:min-h-[88px] md:rounded-2xl md:p-4"
                 key={benefit}
               >
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-lime/[0.12] text-lime">
+                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-lime/[0.12] text-lime md:h-8 md:w-8">
                   <Check className="h-4 w-4" />
                 </span>
                 {benefit}
@@ -343,7 +343,7 @@ function BenefitsSection() {
 
 function AudienceSection() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32">
+    <section className="relative overflow-hidden py-16 md:py-32">
       <div className="absolute inset-0 -z-10">
         <Image
           src={assetPath("/images/fitflow-kettlebell.jpg")}
@@ -359,9 +359,9 @@ function AudienceSection() {
         <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {audience.map((item, index) => (
             <Reveal className="h-full" delay={index * 0.05} key={item}>
-              <div className="glass-panel flex h-full min-h-48 flex-col justify-between rounded-[26px] p-5">
+              <div className="glass-panel flex h-full min-h-32 flex-col justify-between rounded-[22px] p-4 md:min-h-48 md:rounded-[26px] md:p-5">
                 <Sparkles className="h-5 w-5 text-lime" />
-                <h3 className="mt-12 text-xl font-semibold leading-7 text-ice">{item}</h3>
+                <h3 className="mt-8 text-lg font-semibold leading-6 text-ice md:mt-12 md:text-xl md:leading-7">{item}</h3>
               </div>
             </Reveal>
           ))}
@@ -373,7 +373,7 @@ function AudienceSection() {
 
 function FinalCtaSection() {
   return (
-    <section id="precos" className="py-24 md:py-32">
+    <section id="precos" className="py-16 md:py-32">
       <div className="section-shell grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>
           <div>
@@ -387,14 +387,14 @@ function FinalCtaSection() {
           </div>
         </div>
 
-        <div className="glass-panel relative overflow-hidden rounded-[36px] p-6 md:p-10 lg:p-12">
+        <div className="glass-panel relative overflow-hidden rounded-[28px] p-5 md:rounded-[36px] md:p-10 lg:p-12">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(199,255,74,0.16),transparent_22rem)]" />
 
           <div className="relative z-10">
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">
               Plano completo
             </p>
-            <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
+            <h2 className="text-balance text-3xl font-semibold leading-[1.05] text-ice md:text-6xl md:leading-[1.02]">
               FitFlow para academias em crescimento.
             </h2>
             <p className="mt-5 max-w-md text-base leading-7 text-muted md:text-lg md:leading-8">
@@ -427,14 +427,14 @@ function FinalCtaSection() {
 
 function AppPreviewSection() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-32">
       <div className="section-shell grid items-center gap-12 lg:grid-cols-[1fr_0.72fr] lg:gap-16">
         <Reveal>
           <div>
             <p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">
               Produto vivo
             </p>
-            <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
+            <h2 className="text-balance text-3xl font-semibold leading-[1.05] text-ice md:text-6xl md:leading-[1.02]">
               A gestão da academia e a experiência do aluno no mesmo fluxo.
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
@@ -467,20 +467,26 @@ function Footer() {
           </div>
           <p className="mt-3 text-sm text-muted">Gestão premium para academias em fluxo.</p>
         </div>
-        <nav className="flex flex-wrap gap-x-5 gap-y-3 text-sm text-muted">
-          {navItems.map((item) => (
-            <a className="focus-ring rounded-full transition hover:text-ice" href={item.href} key={item.href}>
-              {item.label}
-            </a>
-          ))}
-          <a
-            className="focus-ring rounded-full transition hover:text-ice"
-            href={WHATSAPP_URL}
-            rel="noreferrer"
-            target="_blank"
-          >
-            WhatsApp
-          </a>
+        <nav aria-label="Menu do rodapé">
+          <ul className="grid gap-2 text-sm text-muted md:flex md:flex-wrap md:gap-x-5 md:gap-y-3">
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <a className="focus-ring block rounded-lg py-1 transition hover:text-ice md:rounded-full md:py-0" href={item.href}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                className="focus-ring block rounded-lg py-1 transition hover:text-ice md:rounded-full md:py-0"
+                href={WHATSAPP_URL}
+                rel="noreferrer"
+                target="_blank"
+              >
+                WhatsApp
+              </a>
+            </li>
+          </ul>
         </nav>
         <p className="text-sm text-muted">© 2026 FitFlow. Todos os direitos reservados.</p>
       </div>
@@ -505,7 +511,7 @@ export default function Home() {
         <HowItWorksSection />
         <BenefitsSection />
         <AudienceSection />
-        <section id="faq" className="py-24 md:py-32">
+        <section id="faq" className="py-16 md:py-32">
           <div className="section-shell">
             <SectionHeading title="Perguntas frequentes" />
             <Reveal>

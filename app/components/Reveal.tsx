@@ -40,18 +40,18 @@ export function SectionHeading({
 
   return (
     <Reveal
-      className={`mx-auto mb-14 ${isCenter ? "max-w-3xl text-center" : "max-w-2xl text-left"}`}
+      className={`mx-auto mb-10 md:mb-14 ${isCenter ? "max-w-3xl text-center" : "max-w-2xl text-left"}`}
     >
       {eyebrow ? (
         <p className="mb-4 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-balance text-4xl font-semibold leading-[1.02] tracking-normal text-ice md:text-6xl">
+      <h2 className="text-balance text-3xl font-semibold leading-[1.05] tracking-normal text-ice md:text-6xl md:leading-[1.02]">
         {title}
       </h2>
       {description ? (
-        <p className={`mt-5 text-pretty text-lg leading-8 text-muted ${isCenter ? "mx-auto" : ""}`}>
+        <p className={`mt-4 text-pretty text-base leading-7 text-muted md:mt-5 md:text-lg md:leading-8 ${isCenter ? "mx-auto" : ""}`}>
           {description}
         </p>
       ) : null}
