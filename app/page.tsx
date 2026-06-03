@@ -44,8 +44,9 @@ const PRICING_PERKS = [
 function TwoLineTitle({ lines }: { lines: readonly [string, string] }) {
   return (
     <>
-      <span className="block md:whitespace-nowrap">{lines[0]} </span>
-      <span className="block md:whitespace-nowrap">{lines[1]}</span>
+      <span className="md:whitespace-nowrap">{lines[0]} </span>
+      <br />
+      <span className="md:whitespace-nowrap">{lines[1]}</span>
     </>
   );
 }
@@ -123,7 +124,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-normal text-ice md:text-6xl xl:text-[5rem]">
+          <h1 className="max-w-[1180px] text-balance text-5xl font-semibold leading-[0.98] tracking-normal text-ice md:text-6xl xl:text-[5rem]">
             <TwoLineTitle
               lines={[
                 "Gestão mais leve para academias",
@@ -311,13 +312,13 @@ function InterfaceSection() {
           description="Menu lateral, métricas essenciais, gráfico de evolução, alunos recentes e notificações em uma leitura limpa."
         />
         <Reveal>
-          <div className="glass-panel lime-glow relative overflow-hidden rounded-[26px] p-1.5 md:rounded-[34px] md:p-3">
+          <div className="glass-panel lime-glow relative mx-auto w-full max-w-[1180px] overflow-hidden rounded-[26px] p-1.5 md:rounded-[34px] md:p-3">
             <Image
               src={assetPath("/images/fitflow-dashboard-preview.png")}
               alt="Tela real do dashboard administrativo do FitFlow"
               width={1920}
-              height={1080}
-              className="aspect-[16/9] w-full rounded-[20px] object-contain md:rounded-[26px]"
+              height={998}
+              className="aspect-[1920/998] w-full rounded-[20px] bg-[#f4f8f1] object-contain md:rounded-[26px]"
             />
           </div>
         </Reveal>
