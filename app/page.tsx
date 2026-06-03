@@ -300,7 +300,6 @@ function InterfaceSection() {
     <section className="py-16 md:py-32">
       <div className="section-shell">
         <SectionHeading
-          align="left"
           title={
             <TwoLineTitle
               lines={[
