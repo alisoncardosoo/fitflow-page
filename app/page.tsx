@@ -9,11 +9,7 @@ import {
 } from "lucide-react";
 import { FaqAccordion } from "./components/FaqAccordion";
 import { Header } from "./components/Header";
-import {
-  DashboardPreview,
-  MobileProductPreview,
-  ProductOrbitCards
-} from "./components/ProductMockups";
+import { MobileProductPreview } from "./components/ProductMockups";
 import { Reveal, SectionHeading } from "./components/Reveal";
 import { ScrollProductVideo } from "./components/ScrollProductVideo";
 import { SmoothScroll } from "./components/SmoothScroll";
@@ -94,7 +90,10 @@ function SecondaryButton({ href, label }: { href: string; label: string }) {
 
 function Hero() {
   return (
-    <section id="top" className="relative isolate flex min-h-[88svh] items-center overflow-hidden pt-28">
+    <section
+      id="top"
+      className="relative isolate flex min-h-svh items-center justify-center overflow-hidden pt-28 pb-16"
+    >
       <div className="hero-vignette absolute inset-0 -z-20">
         <Image
           src={assetPath("/images/fitflow-hero-gym.jpg")}
@@ -106,18 +105,15 @@ function Hero() {
         />
       </div>
       <div className="grid-mask absolute inset-0 -z-10 opacity-[0.35]" />
-      <div className="absolute right-[8%] top-[18%] -z-10 h-80 w-80 rounded-full bg-lime/10 blur-3xl drift" />
+      <div className="absolute left-1/2 top-[14%] -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-lime/10 blur-3xl drift" />
 
-      <div className="section-shell grid items-center gap-12 pb-10 lg:grid-cols-[1.02fr_0.98fr]">
+      <div className="section-shell flex flex-col items-center text-center">
         <motion.div
+          className="flex flex-col items-center"
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.06] px-4 py-2 text-sm font-medium text-ice backdrop-blur-xl">
-            <span className="h-2 w-2 rounded-full bg-lime" />
-            Central premium para academias modernas
-          </div>
           <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-normal text-ice md:text-6xl xl:text-[5rem]">
             Gestão mais leve para academias que querem crescer com controle.
           </h1>
@@ -125,25 +121,13 @@ function Hero() {
             O FitFlow conecta alunos, treinos, check-ins, financeiro e comunicação em uma
             experiência simples, fluida e profissional.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
             <PrimaryButton href="#precos" label="Solicitar demonstração" />
             <SecondaryButton href="#experiencia" label="Ver experiência" />
           </div>
           <p className="mt-7 text-sm leading-6 text-muted">
             Menos planilhas. Menos ruído. Mais clareza para a sua operação.
           </p>
-        </motion.div>
-
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0, y: 36, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="float-slow">
-            <DashboardPreview />
-          </div>
-          <ProductOrbitCards />
         </motion.div>
       </div>
     </section>
@@ -205,7 +189,7 @@ function PainSection() {
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/[0.045] text-lime">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-lg font-medium leading-7 text-ice">{card.title}</h3>
+                  <h3 className="text-xl font-semibold leading-7 text-ice">{card.title}</h3>
                 </div>
               </Reveal>
             );
@@ -231,7 +215,7 @@ function FeatureSection() {
                   <span className="mb-7 grid h-11 w-11 place-items-center rounded-2xl bg-lime/10 text-lime">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="text-lg font-semibold text-ice">{feature.title}</h3>
+                  <h3 className="text-xl font-semibold text-ice">{feature.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-muted">{feature.description}</p>
                 </div>
               </Reveal>
@@ -248,7 +232,7 @@ function AppleStatementSection() {
     <section className="relative overflow-hidden py-24 md:py-36">
       <div className="section-shell">
         <Reveal className="mx-auto max-w-5xl text-center">
-          <h2 className="text-balance text-5xl font-semibold leading-[0.98] text-ice md:text-7xl">
+          <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
             Simples na superfície. Poderoso na gestão.
           </h2>
         </Reveal>
@@ -377,7 +361,7 @@ function AudienceSection() {
             <Reveal delay={index * 0.05} key={item}>
               <div className="glass-panel flex min-h-40 flex-col justify-between rounded-[26px] p-5">
                 <Sparkles className="h-5 w-5 text-lime" />
-                <h3 className="mt-12 text-lg font-semibold leading-7 text-ice">{item}</h3>
+                <h3 className="mt-12 text-xl font-semibold leading-7 text-ice">{item}</h3>
               </div>
             </Reveal>
           ))}
@@ -392,16 +376,6 @@ function FinalCtaSection() {
     <section id="precos" className="py-24 md:py-32">
       <div className="section-shell">
         <div className="glass-panel relative overflow-hidden rounded-[36px] p-6 md:p-10 lg:p-12">
-          <div className="absolute inset-y-0 right-0 hidden w-[42%] lg:block">
-            <Image
-              src={assetPath("/images/fitflow-trainer.jpg")}
-              alt="Treinador acompanhando aluna"
-              fill
-              className="object-cover opacity-[0.18]"
-              sizes="42vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-graphite via-graphite/[0.82] to-graphite/[0.34]" />
-          </div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(199,255,74,0.16),transparent_22rem)]" />
 
           <div className="relative z-10 grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:gap-12">
@@ -410,7 +384,7 @@ function FinalCtaSection() {
                 <p className="mb-5 text-sm font-medium uppercase tracking-[0.22em] text-lime/80">
                   Plano completo
                 </p>
-                <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-5xl">
+                <h2 className="text-balance text-4xl font-semibold leading-[1.02] text-ice md:text-6xl">
                   FitFlow para academias em crescimento.
                 </h2>
                 <p className="mt-5 max-w-md text-base leading-7 text-muted md:text-lg md:leading-8">
