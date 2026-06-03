@@ -43,6 +43,7 @@ export function ScrollProductVideo() {
   const [progress, setProgress] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
   const [mobileSlideIndex, setMobileSlideIndex] = useState(0);
+  const slideCount = productSlides.length;
 
   useEffect(() => {
     const query = window.matchMedia("(min-width: 768px)");
@@ -90,18 +91,36 @@ export function ScrollProductVideo() {
     }
 
     const interval = window.setInterval(() => {
-      setMobileSlideIndex((current) => (current + 1) % productSlides.length);
+      setMobileSlideIndex((current) => (current + 1) % slideCount);
     }, 2600);
 
     return () => window.clearInterval(interval);
-  }, [isDesktop]);
+  }, [isDesktop, slideCount]);
 
   const desktopActiveIndex = Math.min(
-    productSlides.length - 1,
-    Math.floor(progress * productSlides.length)
+    slideCount - 1,
+    Math.floor(progress * slideCount)
   );
   const activeIndex = isDesktop ? desktopActiveIndex : mobileSlideIndex;
-  const visibleProgress = isDesktop ? progress : (mobileSlideIndex + 1) / productSlides.length;
+
+  const selectSlide = (index: number) => {
+    setMobileSlideIndex(index);
+
+    const section = sectionRef.current;
+
+    if (!isDesktop || !section) {
+      return;
+    }
+
+    const sectionTop = window.scrollY + section.getBoundingClientRect().top;
+    const scrollable = Math.max(section.offsetHeight - window.innerHeight, 1);
+    const targetProgress = slideCount <= 1 ? 0 : index / (slideCount - 1);
+
+    window.scrollTo({
+      top: sectionTop + scrollable * targetProgress,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <section
@@ -124,15 +143,15 @@ export function ScrollProductVideo() {
             </p>
           </div>
 
-          <div className="relative mx-auto w-[min(100%,calc(54svh*1.5377))] max-w-5xl">
-            <div className="absolute -inset-6 rounded-[44px] bg-lime/10 blur-3xl" />
-            <div className="glass-panel lime-glow relative overflow-hidden rounded-[34px] p-2 md:p-3">
-              <div className="absolute left-6 top-6 z-20 hidden items-center gap-2 rounded-full border border-white/10 bg-ink/[0.62] px-4 py-2 text-xs font-medium text-ice backdrop-blur-xl md:flex">
+          <div className="relative mx-auto w-[min(100%,calc(56svh*1.5377))] max-w-4xl">
+            <div className="absolute -inset-5 rounded-[42px] bg-lime/10 blur-3xl" />
+            <div className="lime-glow relative overflow-hidden rounded-[30px] border border-lime/[0.18] bg-ink p-2 shadow-glass md:rounded-[34px] md:p-3">
+              <div className="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full border border-white/10 bg-ink/[0.74] px-3 py-1.5 text-[11px] font-medium text-ice shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl md:left-6 md:top-6 md:px-4 md:py-2 md:text-xs">
                 <span className="h-2 w-2 rounded-full bg-lime" />
                 {productSlides[activeIndex].label}
               </div>
 
-              <div className="relative aspect-[2940/1912] w-full overflow-hidden rounded-[26px] bg-ink">
+              <div className="relative aspect-[2940/1912] w-full overflow-hidden rounded-[22px] bg-[#050706] md:rounded-[26px]">
                 {productSlides.map((slide, index) => (
                   <SlideImage
                     key={slide.label}
@@ -142,34 +161,36 @@ export function ScrollProductVideo() {
                   />
                 ))}
 
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_16%,rgba(199,255,74,0.12),transparent_28%),linear-gradient(180deg,rgba(7,7,7,0)_52%,rgba(7,7,7,0.78)_100%)]" />
-              </div>
-
-              <div className="grid grid-cols-3 gap-1.5 px-1.5 pb-1.5 pt-2 md:gap-2 md:px-2 md:pb-2 md:pt-3 lg:grid-cols-6">
-                {productSlides.map((slide, index) => {
-                  const isActive = index === activeIndex;
-
-                  return (
-                    <div
-                      className={`rounded-full border px-2 py-1.5 text-center text-[11px] transition duration-700 ease-smooth md:px-3 md:py-2 md:text-xs ${
-                        isActive
-                          ? "border-lime/[0.35] bg-lime/[0.12] text-lime"
-                          : "border-white/[0.08] bg-white/[0.035] text-muted"
-                      }`}
-                      key={slide.label}
-                    >
-                      {slide.label}
-                    </div>
-                  );
-                })}
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_16%,rgba(199,255,74,0.11),transparent_28%),linear-gradient(180deg,rgba(7,7,7,0)_58%,rgba(7,7,7,0.74)_100%)]" />
               </div>
             </div>
 
-            <div className="mx-auto mt-7 h-1.5 max-w-3xl overflow-hidden rounded-full bg-white/[0.08]">
-              <div
-                className="h-full rounded-full bg-lime transition-[width] duration-500 ease-smooth"
-                style={{ width: `${visibleProgress * 100}%` }}
-              />
+            <div
+              aria-label="Navegar pelas telas da experiência"
+              className="mt-5 flex items-center justify-center gap-2.5"
+              role="tablist"
+            >
+              {productSlides.map((slide, index) => {
+                const isActive = index === activeIndex;
+
+                return (
+                  <button
+                    aria-current={isActive ? "true" : undefined}
+                    aria-label={`Mostrar ${slide.label}`}
+                    className={`focus-ring h-3 rounded-full transition duration-500 ease-smooth ${
+                      isActive
+                        ? "w-8 bg-lime shadow-[0_0_24px_rgba(199,255,74,0.4)]"
+                        : "w-3 cursor-pointer bg-white/[0.18] hover:bg-white/35"
+                    }`}
+                    key={slide.label}
+                    onClick={() => selectSlide(index)}
+                    role="tab"
+                    type="button"
+                  >
+                    <span className="sr-only">{slide.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
