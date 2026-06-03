@@ -61,9 +61,9 @@ export function ScrollProductVideo() {
     <section
       ref={sectionRef}
       id="experiencia"
-      className="relative overflow-x-clip bg-[linear-gradient(180deg,transparent,#0b0d0c_14%,#0b0d0c_86%,transparent)] md:h-[330vh]"
+      className="relative bg-[linear-gradient(180deg,transparent,#0b0d0c_14%,#0b0d0c_86%,transparent)] md:h-[330vh]"
     >
-      <div className="flex min-h-svh items-center overflow-hidden py-20 md:sticky md:top-0 md:h-svh md:py-8 lg:py-10">
+      <div className="flex min-h-svh items-center py-20 md:sticky md:top-0 md:h-svh md:py-8 lg:py-10">
         <div className="section-shell flex h-full flex-col justify-center">
           <div className="mx-auto mb-6 max-w-3xl text-center lg:mb-8">
             <p className="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-lime/80 md:text-sm">
