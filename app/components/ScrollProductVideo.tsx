@@ -25,9 +25,9 @@ function SlideImage({
       src={src}
       alt={`FitFlow — ${slide.label}`}
       fill
-      sizes="(max-width: 1024px) 100vw, 1024px"
+      sizes="(max-width: 1180px) 100vw, 1180px"
       priority={priority}
-      className={`object-contain transition-opacity duration-700 ease-smooth ${
+      className={`object-cover object-top transition-opacity duration-700 ease-smooth ${
         isActive ? "opacity-100" : "opacity-0"
       }`}
       onError={() => {
@@ -143,7 +143,7 @@ export function ScrollProductVideo() {
             </p>
           </div>
 
-          <div className="relative mx-auto w-[min(100%,calc(56svh*1.5377))] max-w-4xl">
+          <div className="relative mx-auto w-full max-w-[1180px]">
             <div className="absolute -inset-5 rounded-[42px] bg-lime/10 blur-3xl" />
             <div className="lime-glow relative overflow-hidden rounded-[30px] border border-lime/[0.18] bg-ink p-2 shadow-glass md:rounded-[34px] md:p-3">
               <div className="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full border border-white/10 bg-ink/[0.74] px-3 py-1.5 text-[11px] font-medium text-ice shadow-[0_12px_40px_rgba(0,0,0,0.35)] backdrop-blur-xl md:left-6 md:top-6 md:px-4 md:py-2 md:text-xs">

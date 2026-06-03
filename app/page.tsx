@@ -41,6 +41,15 @@ const PRICING_PERKS = [
   "Fluxo pronto para crescer"
 ];
 
+function TwoLineTitle({ lines }: { lines: readonly [string, string] }) {
+  return (
+    <>
+      <span className="block md:whitespace-nowrap">{lines[0]} </span>
+      <span className="block md:whitespace-nowrap">{lines[1]}</span>
+    </>
+  );
+}
+
 function PrimaryButton({ href, label }: { href: string; label: string }) {
   const isExternal = href.startsWith("http");
 
@@ -115,7 +124,12 @@ function Hero() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-normal text-ice md:text-6xl xl:text-[5rem]">
-            Gestão mais leve para academias que querem crescer com controle.
+            <TwoLineTitle
+              lines={[
+                "Gestão mais leve para academias",
+                "que querem crescer com controle."
+              ]}
+            />
           </h1>
           <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-muted md:text-xl">
             O FitFlow conecta alunos, treinos, check-ins, financeiro e comunicação em uma
@@ -139,7 +153,14 @@ function PositioningSection() {
     <section id="produto" className="relative pb-16 pt-3 md:pb-32 md:pt-4">
       <div className="section-shell">
         <SectionHeading
-          title="Não é apenas um sistema. É a central de controle da sua academia."
+          title={
+            <TwoLineTitle
+              lines={[
+                "Não é apenas um sistema. É a central",
+                "de controle da sua academia."
+              ]}
+            />
+          }
           description="O FitFlow reúne o que antes ficava espalhado em planilhas, mensagens e controles manuais. Tudo ganha fluxo, clareza e uma experiência mais profissional para equipe, gestão e alunos."
         />
         <div className="grid auto-rows-fr gap-5 md:grid-cols-3">
@@ -178,7 +199,16 @@ function PainSection() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#070707_0%,rgba(7,7,7,0.72)_44%,#070707_100%)]" />
       </div>
       <div className="section-shell">
-        <SectionHeading title="Quando a academia cresce, os detalhes começam a escapar." />
+        <SectionHeading
+          title={
+            <TwoLineTitle
+              lines={[
+                "Quando a academia cresce,",
+                "os detalhes começam a escapar."
+              ]}
+            />
+          }
+        />
         <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {painCards.map((card, index) => {
             const Icon = card.icon;
@@ -270,7 +300,14 @@ function InterfaceSection() {
       <div className="section-shell">
         <SectionHeading
           align="left"
-          title="A interface trabalha como a sua equipe precisa operar."
+          title={
+            <TwoLineTitle
+              lines={[
+                "A interface trabalha como a sua equipe",
+                "precisa operar."
+              ]}
+            />
+          }
           description="Menu lateral, métricas essenciais, gráfico de evolução, alunos recentes e notificações em uma leitura limpa."
         />
         <Reveal>
@@ -355,7 +392,16 @@ function AudienceSection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(199,255,74,0.12),transparent_34rem),linear-gradient(180deg,#070707_0%,rgba(7,7,7,0.82)_45%,#070707_100%)]" />
       </div>
       <div className="section-shell">
-        <SectionHeading title="Feito para academias que querem evoluir com organização." />
+        <SectionHeading
+          title={
+            <TwoLineTitle
+              lines={[
+                "Feito para academias que querem",
+                "evoluir com organização."
+              ]}
+            />
+          }
+        />
         <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {audience.map((item, index) => (
             <Reveal className="h-full" delay={index * 0.05} key={item}>

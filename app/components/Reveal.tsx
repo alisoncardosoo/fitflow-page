@@ -25,7 +25,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 
 type SectionHeadingProps = {
   eyebrow?: string;
-  title: string;
+  title: ReactNode;
   description?: string;
   align?: "left" | "center";
 };
