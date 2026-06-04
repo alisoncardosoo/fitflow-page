@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { assetPath } from "./lib/assets";
 import "./globals.css";
 
-const faviconUrl = assetPath("/images/logo-fitflow.png?v=2");
+const faviconUrl = assetPath("/favicon.png?v=3");
 
 export const metadata: Metadata = {
   title: "FitFlow | Sua academia em fluxo",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   icons: {
     icon: faviconUrl,
     shortcut: faviconUrl,
-    apple: assetPath("/images/logo-fitflow.png")
+    apple: faviconUrl
   }
 };
 
