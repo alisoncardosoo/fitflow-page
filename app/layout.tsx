@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { PostHogAnalytics } from "./components/PostHogAnalytics";
 import { assetPath } from "./lib/assets";
 import "./globals.css";
 
@@ -29,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body>{children}</body>
+      <body>
+        <PostHogAnalytics>{children}</PostHogAnalytics>
+      </body>
     </html>
   );
 }
